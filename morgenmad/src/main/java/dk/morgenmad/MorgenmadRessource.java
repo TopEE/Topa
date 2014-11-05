@@ -5,6 +5,8 @@
  */
 package dk.morgenmad;
 
+import dk.morgenmad.service.HelloBean;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,10 +18,13 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/morgenmad")
 public class MorgenmadRessource {
-    
+    @Inject 
+    HelloBean hb;
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello";
+        //return "Hello";
+        return hb.hello();
+        
     } 
 }
