@@ -16,12 +16,16 @@ import javax.persistence.Id;
  * @author JC
  */
 @Entity
-public class User implements Serializable {
+public class Bruger implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
+    private String name;
+    
+    private String userId;
+    
     public Long getId() {
         return id;
     }
@@ -40,10 +44,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Bruger)) {
             return false;
         }
-        User other = (User) object;
+        Bruger other = (Bruger) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -52,7 +56,23 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "dk.morgenmad.service.User[ id=" + id + " ]";
+        return getId().toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
     
 }
